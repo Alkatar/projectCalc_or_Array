@@ -7,15 +7,17 @@ public class Calc {
         Scanner n = new Scanner(System.in);
 
         while (true) {
+            // Ввод типа операции
             System.out.println("Input operation type: 1 - Addition, 2 - Subtraction, 3 - Multiplication, 4 - Division, 5 - Exit");
             int c = n.nextInt();
             if (c==5) return;
+            // Ввод чисел
             System.out.println("Input first number:");
             double a = l.nextDouble();
             System.out.println("Input second number:");
             double b = m.nextDouble();
 
-
+            // Выбор операции в зависимости от введенной цифры
             switch (c) {
                 case 1:
                     double x = a + b;
