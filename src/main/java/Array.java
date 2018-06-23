@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Array {
+public class Array {
     public static void main(String[]args){
         System.out.println("Введите размер массива ");
         Scanner a = new Scanner(System.in);
