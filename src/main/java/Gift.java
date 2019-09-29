@@ -1,43 +1,72 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Gift {
+        public static void main(String[] args) throws IOException {
+            prepareGift();
+        }
 
-    public static class Candy {
-        static String name = "Батончики Рот-Фронт";
-        static int weight = 100;
-        static double price = 34.2;
-        static String manufacturer = "Рот-Фронт";
+    public static void prepareGift() throws IOException {
+        ArrayList<Sweets> sweets = new ArrayList<>();
+        boolean formed = false;
+        int totalPrice = 0;
+        int totalWeight = 0;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Нажмите соответствующую цифру, чтобы добавить сладость в подарок:");
+        System.out.println("'1' - конфеты \"Рот-Фронт\"");
+        System.out.println("'2' - конфеты \"Ласточка\"");
+        System.out.println("'3' - леденец \"Чупа-чупс\"");
+        System.out.println("'4' - драже \"Jellybean\"");
+        System.out.println("'5' - закончить выбор");
+        while (!formed) {
 
+            String choice = reader.readLine();
+
+            switch (choice) {
+                case "1":
+                    Candy candyRF = new Candy("Конфеты \"Рот-Фронт\"", 105, 100, "Батончики");
+                    sweets.add(candyRF);
+                    totalPrice += candyRF.getPrice();
+                    totalWeight += candyRF.getWeight();
+                    System.out.println("Конфеты \"Рот-Фронт\" добавлены в подарок");
+                    break;
+                case "2":
+                    Candy martlet  = new Candy("Конфеты \"Ласточка\"", 125, 150, "Вкус детства");
+                    sweets.add(martlet );
+                    totalPrice += martlet.getPrice();
+                    totalWeight += martlet.getWeight();
+                    System.out.println("Конфеты \"Ласточка\" добавлены в подарок");
+                    break;
+                case "3":
+                    Lollypop chups = new Lollypop("Леденец \"Чупа-чупс\"", 35, 50, "Со вкусом апельсина");
+                    sweets.add(chups);
+                    totalPrice += chups.getPrice();
+                    totalWeight += chups.getWeight();
+                    System.out.println("Леденец \"Чупа-чупс\" добавлен в подарок");
+                    break;
+                case "4":
+                    Jellybean bean = new Jellybean("Драже \"Jellybean\"", 177, 50, "Со вкусом \"Мультифрукт\"");
+                    sweets.add(bean);
+                    totalPrice += bean.getPrice();
+                    totalWeight += bean.getWeight();
+                    System.out.println("Драже \"Jellybean\" добавлены в подарок");
+                    break;
+                case "5":
+                    formed = true;
+                    break;
+            }
+
+
+        }
+        int count = 0;
+        System.out.println("\nПодарок состоит из:");
+        for (Sweets sweet:sweets) {
+            count++;
+            System.out.println(count + ". " + sweet.getName() + " - " + sweet.getAdditionalInformation());
+        }
+        System.out.println(String.format("\nОбщий вес подарка: %s гр.\nОбщая цена подарка: %s руб.", totalWeight, totalPrice));
     }
 
-    public static class JellyBelly {
-        static String name = "Jelly Belly Ассорти";
-        static int weight = 50;
-        static  int price = 155;
-        static String manufacturer = "Jelly Belly Candy Company";
-    }
-
-    public static class Chocolate {
-        static String name = "Аленка";
-        static int weight = 100;
-        static int price = 76;
-        static String manufacturer = "Красный Октябрь";
-    }
-
-    public static class Lollipop {
-        static String name = "Charles Berger";
-        static int weight = 200;
-        static int price = 193;
-        static String manufacturer = "Cebe Bonbon GmbH.";
-    }
-
-    public static void main(String[] args) {
-        String GiftName  = "6 "+Candy.name + ", 4 драже " + JellyBelly.name + ", 2 шоколадки "+Chocolate.name+", 2 упаковки леденцов " + Lollipop.name;
-        System.out.println("Подарок состоит из:\n" + GiftName +'\n');
-        int GiftWeight = 6*Candy.weight + 4*JellyBelly.weight + 2*Chocolate.weight + 2*Lollipop.weight;
-        System.out.println("Общий вес подарка в граммах:\n" + GiftWeight+'\n');
-        double GiftPrice = 6*Candy.price + 4*JellyBelly.weight + 2*Chocolate.weight + 2*Lollipop.weight;
-        System.out.printf("Общая цена подарка в рублях:\n %.2f\n", GiftPrice);
-        String GiftMan  = Candy.manufacturer + ", " + JellyBelly.manufacturer + ", "+Chocolate.manufacturer+", " + Lollipop.manufacturer;
-        System.out.println("В составе подарка продукция следующих производителей:\n" + GiftMan +'\n');
-    }
 }
