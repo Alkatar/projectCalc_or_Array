@@ -26,14 +26,14 @@ public class Gift {
 
             switch (choice) {
                 case "1":
-                    Candy candyRF = new Candy("Конфеты \"Рот-Фронт\"", 105, 100, "Батончики");
+                    Candy candyRF = new Candy("Конфеты \"Рот-Фронт\"", 105, 100, "Цилиндрической формы");
                     sweets.add(candyRF);
                     totalPrice += candyRF.getPrice();
                     totalWeight += candyRF.getWeight();
                     System.out.println("Конфеты \"Рот-Фронт\" добавлены в подарок");
                     break;
                 case "2":
-                    Candy martlet  = new Candy("Конфеты \"Ласточка\"", 125, 150, "Вкус детства");
+                    Candy martlet  = new Candy("Конфеты \"Ласточка\"", 125, 150, "Прямоугольной формы");
                     sweets.add(martlet );
                     totalPrice += martlet.getPrice();
                     totalWeight += martlet.getWeight();
@@ -47,7 +47,7 @@ public class Gift {
                     System.out.println("Леденец \"Чупа-чупс\" добавлен в подарок");
                     break;
                 case "4":
-                    Jellybean bean = new Jellybean("Драже \"Jellybean\"", 177, 50, "Со вкусом \"Мультифрукт\"");
+                    Jellybean bean = new Jellybean("Драже \"Jellybean\"", 177, 50, "Зеленого цвета");
                     sweets.add(bean);
                     totalPrice += bean.getPrice();
                     totalWeight += bean.getWeight();
@@ -60,12 +60,8 @@ public class Gift {
 
 
         }
-        int count = 0;
-        System.out.println("\nПодарок состоит из:");
-        for (Sweets sweet:sweets) {
-            count++;
-            System.out.println(count + ". " + sweet.getName() + " - " + sweet.getAdditionalInformation());
-        }
+            System.out.println(sweets);
+
         System.out.println(String.format("\nОбщий вес подарка: %s гр.\nОбщая цена подарка: %s руб.", totalWeight, totalPrice));
     }
 

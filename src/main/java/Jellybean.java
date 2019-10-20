@@ -4,13 +4,13 @@ public class Jellybean implements Sweets{
     int price;
     int weight;
 
-    String additionalInformation;
+    String color;
 
-    public Jellybean(String name, int price, int weight, String additionalInformation){
+    public Jellybean(String name, int price, int weight, String color){
         this.name = name;
         this.price = price;
         this.weight =  weight;
-        this.additionalInformation = additionalInformation;
+        this.color = color;
     }
 
     public String getName() {
@@ -37,13 +37,16 @@ public class Jellybean implements Sweets{
         this.weight = weight;
     }
 
-    public String getAdditionalInformation() {
-        return additionalInformation;
+    public String getColor() {
+        return color;
     }
 
-    public void setAdditionalInformation(String additionalInformation) {
-        this.additionalInformation = additionalInformation;
+    public void setColor(String color) {
+        this.color = color;
     }
-
+    @Override
+    public String toString() {
+        return "\nName: " + this.name + "\nPrice: " + this.price + "\nWeight: " + this.weight + "\nColor: " + this.color;
+    }
 
 }

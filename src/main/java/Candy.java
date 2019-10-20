@@ -4,13 +4,13 @@ public class Candy implements Sweets{
     int price;
     int weight;
 
-    String additionalInformation;
+    String form;
 
-    public Candy(String name, int price, int weight, String additionalInformation){
+    public Candy(String name, int price, int weight, String form){
         this.name = name;
         this.price = price;
         this.weight =  weight;
-        this.additionalInformation = additionalInformation;
+        this.form = form;
     }
 
     public String getName() {
@@ -37,13 +37,16 @@ public class Candy implements Sweets{
         this.weight = weight;
     }
 
-    public String getAdditionalInformation() {
-        return additionalInformation;
+    public String getForm() {
+        return form;
     }
 
-    public void setAdditionalInformation(String additionalInformation) {
-        this.additionalInformation = additionalInformation;
+    public void setForm(String smell) {
+        this.form = smell;
     }
-
+    @Override
+    public String toString() {
+        return "\nName: " + this.name + "\nPrice: " + this.price + "\nWeight: " + this.weight + "\nForm: " + this.form;
+    }
 
 }

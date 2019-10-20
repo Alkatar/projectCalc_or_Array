@@ -2,13 +2,15 @@ public class Lollypop implements Sweets{
     String name;
     int price;
     int weight;
-    String additionalInformation;
+    String flavor;
 
-public Lollypop(String name, int price, int weight, String additionalInformation){
+
+public Lollypop(String name, int price, int weight, String flavor){
         this.name = name;
         this.price = price;
         this.weight =  weight;
-        this.additionalInformation = additionalInformation;
+
+        this.flavor = flavor;
         }
 
 public String getName() {
@@ -35,12 +37,16 @@ public void setWeight(int weight) {
         this.weight = weight;
         }
 
-public String getAdditionalInformation() {
-        return additionalInformation;
+public String getFlavor() {
+        return flavor;
         }
 
-public void setAdditionalInformation(String additionalInformation) {
-        this.additionalInformation = additionalInformation;
+public void setFlavor(String flavor) {
+        this.flavor = flavor;
         }
 
+        @Override
+        public String toString() {
+                return "Name:\n" + this.name + "\nPrice:\n" + this.price + "\nWeight:\n" + this.weight + "\nFlavor:\n" + this.flavor;
+        }
 }
