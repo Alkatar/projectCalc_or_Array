@@ -14,7 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="projectCalc_or_Array" options="--add-exports=jdk.scripting.nashorn/jdk.nashorn.internal.objects=ALL-UNNAMED" />
+      <module name="projectCalc_or_Array" options="" />
     </option>
   </component>
 </project>

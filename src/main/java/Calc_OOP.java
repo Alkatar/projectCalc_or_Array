@@ -1,50 +1,56 @@
 import java.util.Scanner;
 
-import static jdk.nashorn.internal.objects.Global.Infinity;
-
 public class Calc_OOP {
     static Scanner scanner = new Scanner(System.in);
 
+    public static void main(String[] args)  {
+        try {
+            double num1 = getDouble();
+            double num2 = getDouble();
+            char operation = getOperation();
+            while (operation != '+' & operation != '-' & operation != '/' & operation != '*')
+            {
+                operation = getOperation();
+            }
+            double result = calc(num1, num2, operation);
+            System.out.printf("Результат операции:\n%.4f", result);
 
-    public static void main(String[] args) {
-        double num1 = getDouble();
-        double num2 = getDouble();
-        char operation = getOperation();
-        double result = 0;
-        result = calc(num1, num2, operation);
+        } catch (Exception ie)
+        {
+            System.out.println(ie.getMessage());
+        }
 
-        System.out.printf("Результат операции:\n%.4f", result);
     }
 
-    public static double getDouble(){
+    public static double getDouble() {
         System.out.println("Введите число:");
         double num;
-        if(scanner.hasNextDouble()){
-            num = scanner.nextDouble();
+        if(scanner.hasNextInt()){
+            num = scanner.nextInt();
         } else {
             System.out.println("Вы допустили ошибку при вводе числа. Попробуйте еще раз.");
-            scanner.next();//рекурсия
+            scanner.next();
             num = getDouble();
         }
         return num;
     }
 
     public static char getOperation(){
-        System.out.println("Введите одну из операций - *, /, +, -");
+        System.out.println("Введите операцию:");
         char operation;
         if(scanner.hasNext()){
             operation = scanner.next().charAt(0);
         } else {
             System.out.println("Вы допустили ошибку при вводе операции. Попробуйте еще раз.");
-            scanner.next();//рекурсия
+            scanner.next();
             operation = getOperation();
         }
         return operation;
     }
 
-    public static double calc(double num1, double num2, char operation)  {
+    public static double calc(double num1, double num2, char operation)  throws Exception {
 
-        double result;
+        double result=0;
 
             switch (operation) {
                 case '+':
@@ -57,29 +63,9 @@ public class Calc_OOP {
                     result = num1 * num2;
                     break;
                 case '/':
-                    try {
-                        if (num2 == 0)
-                            {
-                                throw new Exception("Деление на ноль запрещено!");
-
-                            } else
-                            {
-                                result  = num1 / num2;
-                                break;
-                            }
-                        }
-                    catch(Exception ex)
-                        {
-                            System.out.println(ex.getMessage());
-
-                        }
-                default:
-                    if (num2 == 0) {
-                        result = Infinity;
-                        break;
-                    }
-                    System.out.println("Операция не распознана. Введите одну из операций - *, /, +, -");
-                    result = calc(num1, num2, getOperation());//рекурсия
+                    result  = num1 / num2;
+                    if (num2==0) throw new Exception("Деление на ноль запрещено!");
+                    break;
             }
         return result;
     }
