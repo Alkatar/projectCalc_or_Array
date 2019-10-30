@@ -1,10 +1,6 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import static junit.framework.TestCase.fail;
-import static org.hamcrest.core.StringContains.containsString;
-import static org.junit.Assert.assertThat;
-
 
 public class Calc_OOPTest {
 
@@ -29,20 +25,10 @@ public class Calc_OOPTest {
     }
 
 
-   // @Rule
-   // public ExpectedException exception  = ExpectedException.none();
-
     @Test (expected = java.lang.Exception.class)
     public void division_by_zero_check() throws Exception {
         Calc_OOP calc = new Calc_OOP();
-      //  exception.expect(NumberFormatException.class);
-       // exception.expectMessage(calc.main());
-        try {
-            calc.calc(5,0,'/');
-            fail("Expected NumberFormatException");
-        } catch (NumberFormatException ex) {
-            assertThat(ex.getMessage(), containsString("Деление на ноль запрещено!"));
-        }
+        calc.calc(5,0,'/');
     }
 
 }
